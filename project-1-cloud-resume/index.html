@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Cloud Practitioner Resume</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f0f8ff;
+            color: #232f3e;
+            border: 5px solid #ff9900;
+            border-radius: 10px;
+        }
+        h1 { color: #232f3e; }
+        .badge {
+            background: #ff9900;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            display: inline-block;
+        }
+        .pillar {
+            background: #232f3e;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            display: inline-block;
+            margin: 5px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <h1>☁️ My Cloud Practitioner Journey</h1>
+    <p><span class="badge">✅ Hosted on AWS S3</span></p>
+    
+    <h2>About Me</h2>
+    <p>Hello! I'm currently studying for the AWS Cloud Practitioner certification. 
+    This website is hosted on <strong>Amazon S3</strong> with static website hosting enabled.</p>
+    
+    <h2>AWS Services I've Explored:</h2>
+    <ul>
+        <li><strong>Amazon S3</strong> - Object storage for this website</li>
+        <li><strong>Amazon CloudFront</strong> - CDN for global delivery (coming soon!)</li>
+        <li><strong>AWS IAM</strong> - Secure bucket policies</li>
+        <li><strong>AWS Cost Explorer</strong> - Tracking my spending</li>
+    </ul>
+    
+    <h2>AWS Well-Architected Pillars</h2>
+    <span class="pillar">Operational Excellence</span>
+    <span class="pillar">Security</span>
+    <span class="pillar">Reliability</span>
+    <span class="pillar">Performance Efficiency</span>
+    <span class="pillar">Cost Optimization</span>
+    
+    <h2>📅 Exam Status</h2>
+    <p>Status: <strong>In Progress</strong> - Target exam date: [Insert your date]</p>
+    
+    <hr>
+    <p style="font-size: 12px; color: #666;">Deployed on: <span id="date"></span></p>
+    
+    <script>
+        document.getElementById('date').innerHTML = new Date().toLocaleDateString();
+    </script>
+</body>
+</html>
