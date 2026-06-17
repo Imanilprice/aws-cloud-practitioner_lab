@@ -1,4 +1,4 @@
-\# ☁️ AWS Cloud Practitioner Lab Journal
+\# ☁️ Imani P. AWS Cloud Practitioner Lab Journal
 
 
 
