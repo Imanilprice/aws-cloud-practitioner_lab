@@ -46,13 +46,13 @@ http://imani-cloud-resume-2026.s3-website.us-east-2.amazonaws.com
 
 
 
-\*\*Screenshots:\*\*
+**Screenshots:**
 
-!\[S3 Bucket Created](project-1-cloud-resume/screenshots/1-s3-bucket-created.png)
+![S3 Bucket Created](project-1-cloud-resume/screenshots/bucket%20list.png)
 
-!\[Static Hosting Enabled](project-1-cloud-resume/screenshots/2-static-hosting-enabled.png)
+![Static Hosting Enabled](project-1-cloud-resume/screenshots/Static%20Hosting.png)
 
-!\[Website Live](project-1-cloud-resume/screenshots/3-website-live.png)
+![Website Live](project-1-cloud-resume/screenshots/Screenshot%202026-06-16%20224848.png)
 
 
 
