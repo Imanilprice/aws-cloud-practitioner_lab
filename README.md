@@ -62,48 +62,6 @@ This isn't a course project repo. It's a portfolio of things I've actually built
 
 Planning to add a visitor counter using DynamoDB + Lambda, or explore S3 + CloudFront for HTTPS delivery. Will be added after the AWS exam.
 
----
-
-## How to Recreate Project 1
-
-If you need to re-upload your site files:
-
-### Step 1 — Prepare your files
-Download `index.html` from this repo (in `project-1-cloud-resume/`)
-
-### Step 2 — Create or verify your S3 bucket
-1. Go to **S3** in the AWS Console
-2. If the bucket `imani-cloud-resume-2026` still exists, skip to Step 3
-3. If recreating: **Create bucket** → name it `imani-cloud-resume-2026` → region `us-east-2`
-4. Uncheck **Block all public access**
-
-### Step 3 — Enable static website hosting
-1. Bucket → **Properties** tab → **Static website hosting** → Enable
-2. Index document: `index.html` → Save
-
-### Step 4 — Add bucket policy
-Permissions tab → Bucket policy → paste:
-
-```json
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Sid": "PublicReadGetObject",
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::imani-cloud-resume-2026/*"
-    }
-  ]
-}
-```
-
-### Step 5 — Upload index.html
-Objects tab → Upload → select `index.html` → Upload
-
-### Step 6 — Verify
-Visit: http://imani-cloud-resume-2026.s3-website.us-east-2.amazonaws.com
 
 ---
 
