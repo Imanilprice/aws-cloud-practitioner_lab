@@ -1,70 +1,534 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Cloud Practitioner Resume</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: 50px auto;
-            padding: 20px;
-            background: #f0f8ff;
-            color: #232f3e;
-            border: 5px solid #ff9900;
-            border-radius: 10px;
-        }
-        h1 { color: #232f3e; }
-        .badge {
-            background: #ff9900;
-            color: white;
-            padding: 10px;
-            border-radius: 5px;
-            display: inline-block;
-        }
-        .pillar {
-            background: #232f3e;
-            color: white;
-            padding: 5px 10px;
-            border-radius: 20px;
-            display: inline-block;
-            margin: 5px;
-            font-size: 14px;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Imani Price | Cloud Engineering Journey</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --sky:    #0EA5E9;
+      --cloud:  #E0F2FE;
+      --ink:    #0F172A;
+      --slate:  #475569;
+      --mist:   #F1F5F9;
+      --white:  #FFFFFF;
+      --green:  #10B981;
+      --amber:  #F59E0B;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--mist);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, #0F172A 0%, #1E3A5F 60%, #0EA5E9 100%);
+      color: var(--white);
+      padding: 72px 24px 56px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%230EA5E9' fill-opacity='0.06'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(14,165,233,0.2);
+      border: 1px solid rgba(14,165,233,0.4);
+      color: var(--sky);
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 100px;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2rem, 5vw, 3.25rem);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero h1 .accent { color: var(--sky); }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.75);
+      max-width: 540px;
+      margin: 0 auto 32px;
+    }
+
+    .hero-meta {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .hero-meta span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.65);
+    }
+
+    .hero-meta .dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--green);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.4); }
+    }
+
+    /* ── LAYOUT ── */
+    .container {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 48px 24px;
+    }
+
+    /* ── SECTION HEADER ── */
+    .section-label {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--sky);
+      margin-bottom: 8px;
+    }
+
+    h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 24px;
+    }
+
+    /* ── ROADMAP ── */
+    .roadmap { margin-bottom: 64px; }
+
+    .milestone {
+      display: grid;
+      grid-template-columns: 40px 1fr;
+      gap: 0 20px;
+      margin-bottom: 8px;
+    }
+
+    .milestone-line {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .milestone-dot {
+      width: 16px; height: 16px;
+      border-radius: 50%;
+      border: 3px solid var(--sky);
+      background: var(--white);
+      margin-top: 4px;
+      flex-shrink: 0;
+    }
+
+    .milestone-dot.done {
+      background: var(--green);
+      border-color: var(--green);
+    }
+
+    .milestone-dot.active {
+      background: var(--sky);
+      border-color: var(--sky);
+      box-shadow: 0 0 0 4px rgba(14,165,233,0.2);
+    }
+
+    .milestone-connector {
+      width: 2px;
+      flex: 1;
+      background: #CBD5E1;
+      margin: 4px 0;
+      min-height: 24px;
+    }
+
+    .milestone-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 20px 24px;
+      border: 1px solid #E2E8F0;
+      margin-bottom: 12px;
+      transition: box-shadow 0.2s;
+    }
+
+    .milestone-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.07); }
+
+    .milestone-card.active {
+      border-color: var(--sky);
+      box-shadow: 0 0 0 3px rgba(14,165,233,0.1);
+    }
+
+    .milestone-card.upcoming {
+      opacity: 0.65;
+    }
+
+    .milestone-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 6px;
+    }
+
+    .milestone-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--ink);
+    }
+
+    .badge {
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 100px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .badge-done    { background: #D1FAE5; color: #065F46; }
+    .badge-active  { background: #E0F2FE; color: #0369A1; }
+    .badge-soon    { background: #FEF3C7; color: #92400E; }
+    .badge-planned { background: var(--mist); color: var(--slate); }
+
+    .milestone-desc {
+      font-size: 0.875rem;
+      color: var(--slate);
+      line-height: 1.55;
+    }
+
+    .milestone-date {
+      font-size: 0.775rem;
+      color: var(--sky);
+      font-weight: 500;
+      margin-top: 6px;
+    }
+
+    /* ── PROJECT CARD ── */
+    .projects { margin-bottom: 64px; }
+
+    .project-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 28px 28px 24px;
+      border: 1px solid #E2E8F0;
+      margin-bottom: 20px;
+    }
+
+    .project-card h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+
+    .project-card .desc {
+      font-size: 0.9rem;
+      color: var(--slate);
+      margin-bottom: 16px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .tag {
+      font-size: 0.75rem;
+      font-weight: 500;
+      padding: 4px 10px;
+      border-radius: 6px;
+      background: var(--cloud);
+      color: #0369A1;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    .learnings {
+      background: var(--mist);
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin-bottom: 16px;
+    }
+
+    .learnings-title {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--slate);
+      margin-bottom: 8px;
+    }
+
+    .learnings ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .learnings ul li {
+      font-size: 0.85rem;
+      color: var(--ink);
+      padding: 3px 0;
+      padding-left: 18px;
+      position: relative;
+    }
+
+    .learnings ul li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--sky);
+      font-size: 0.8rem;
+    }
+
+    .live-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--sky);
+      text-decoration: none;
+      border: 1.5px solid var(--sky);
+      padding: 7px 16px;
+      border-radius: 8px;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .live-link:hover {
+      background: var(--sky);
+      color: var(--white);
+    }
+
+    /* ── ABOUT ── */
+    .about {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 36px;
+      border: 1px solid #E2E8F0;
+      margin-bottom: 64px;
+    }
+
+    .about p {
+      font-size: 0.95rem;
+      color: var(--slate);
+      line-height: 1.75;
+      margin-bottom: 14px;
+    }
+
+    .about p:last-child { margin-bottom: 0; }
+
+    .about strong { color: var(--ink); }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 32px 24px;
+      border-top: 1px solid #E2E8F0;
+      background: var(--white);
+    }
+
+    footer p {
+      font-size: 0.8rem;
+      color: var(--slate);
+    }
+
+    footer a {
+      color: var(--sky);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    @media (max-width: 600px) {
+      .hero { padding: 52px 20px 40px; }
+      .about { padding: 24px 20px; }
+      .project-card { padding: 20px 18px; }
+    }
+  </style>
 </head>
 <body>
-    <h1>☁️ My Cloud Practitioner Journey</h1>
-    <p><span class="badge">✅ Hosted on AWS S3</span></p>
-    
-    <h2>About Me</h2>
-    <p>Hello! I'm currently studying for the AWS Cloud Practitioner certification. 
-    This website is hosted on <strong>Amazon S3</strong> with static website hosting enabled.</p>
-    
-    <h2>AWS Services I've Explored:</h2>
-    <ul>
-        <li><strong>Amazon S3</strong> - Object storage for this website</li>
-        <li><strong>Amazon CloudFront</strong> - CDN for global delivery (coming soon!)</li>
-        <li><strong>AWS IAM</strong> - Secure bucket policies</li>
-        <li><strong>AWS Cost Explorer</strong> - Tracking my spending</li>
-    </ul>
-    
-    <h2>AWS Well-Architected Pillars</h2>
-    <span class="pillar">Operational Excellence</span>
-    <span class="pillar">Security</span>
-    <span class="pillar">Reliability</span>
-    <span class="pillar">Performance Efficiency</span>
-    <span class="pillar">Cost Optimization</span>
-    
-    <h2>📅 Exam Status</h2>
-    <p>Status: <strong>In Progress</strong> - Target exam date: [Insert your date]</p>
-    
-    <hr>
-    <p style="font-size: 12px; color: #666;">Deployed on: <span id="date"></span></p>
-    
-    <script>
-        document.getElementById('date').innerHTML = new Date().toLocaleDateString();
-    </script>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-badge">Cloud Engineering Journey</div>
+    <h1>Imani Price 🅿️<br><span class="accent">☁️ Learning in Public</span></h1>
+    <p>Building real projects while studying for AWS Cloud Practitioner. Every lab is proof of concept — not just completed, but understood.</p>
+    <div class="hero-meta">
+      <span><span class="dot"></span> Active learner — Philadelphia, PA</span>
+      <span>📅 AWS Exam: July 1, 2026</span>
+      <span>🎓 CompTIA A+ starts July 13</span>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- ABOUT -->
+    <section class="about">
+      <div class="section-label">Who I am</div>
+      <h2>From Education Operations to the Cloud</h2>
+      <p>
+        I'm Imani — currently Assistant Director of Postsecondary Partnerships at Mastery Schools in Philadelphia, where I've spent years building partnership infrastructure, negotiating MOUs, and driving data-informed decisions across six high school campuses.
+      </p>
+      <p>
+        Now I'm deliberately pivoting into cloud and IT infrastructure — not because I stumbled into it, but because I've spent my career at the intersection of systems, data, and people, and I want to go deeper on the technical side. <strong>This site is my learning log.</strong> Every project here is something I built, broke, fixed, and understood.
+      </p>
+      <p>
+        I learn by doing. So I'm documenting the whole thing.
+      </p>
+    </section>
+
+    <!-- ROADMAP -->
+    <section class="roadmap">
+      <div class="section-label">Where I'm headed</div>
+      <h2>Certification Roadmap</h2>
+
+      <div class="milestone">
+        <div class="milestone-line">
+          <div class="milestone-dot done"></div>
+          <div class="milestone-connector"></div>
+        </div>
+        <div>
+          <div class="milestone-card">
+            <div class="milestone-header">
+              <span class="milestone-title">AWS Cloud Practitioner Essentials</span>
+              <span class="badge badge-active">In Progress</span>
+            </div>
+            <p class="milestone-desc">Covering core AWS services, cloud concepts, billing, security, and the shared responsibility model. Building hands-on projects alongside the coursework.</p>
+            <p class="milestone-date">📅 Exam: July 1, 2026</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="milestone">
+        <div class="milestone-line">
+          <div class="milestone-dot active"></div>
+          <div class="milestone-connector"></div>
+        </div>
+        <div>
+          <div class="milestone-card active">
+            <div class="milestone-header">
+              <span class="milestone-title">CompTIA A+</span>
+              <span class="badge badge-soon">Starting July 13</span>
+            </div>
+            <p class="milestone-desc">Enrolled in the CompTIA A+ course through Montgomery Community College. Foundational hardware, software troubleshooting, networking, and operating systems — the building blocks under the cloud.</p>
+            <p class="milestone-date">📅 July 13 – October 2026 · Montgomery Community College</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="milestone">
+        <div class="milestone-line">
+          <div class="milestone-dot"></div>
+          <div class="milestone-connector"></div>
+        </div>
+        <div>
+          <div class="milestone-card upcoming">
+            <div class="milestone-header">
+              <span class="milestone-title">AWS Solutions Architect – Associate</span>
+              <span class="badge badge-planned">Planned — 2027</span>
+            </div>
+            <p class="milestone-desc">The next cloud certification milestone. Will deepen into VPCs, EC2, load balancing, and designing resilient cloud architectures.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="milestone">
+        <div class="milestone-line">
+          <div class="milestone-dot"></div>
+        </div>
+        <div>
+          <div class="milestone-card upcoming">
+            <div class="milestone-header">
+              <span class="milestone-title">Cloud Engineering Role</span>
+              <span class="badge badge-planned">Target — NYC, 2027</span>
+            </div>
+            <p class="milestone-desc">Working toward a cloud or IT infrastructure role in the NYC area. Every project on this site is a step toward being ready, not just certified.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="projects">
+      <div class="section-label">Hands-on work</div>
+      <h2>Projects</h2>
+
+      <div class="project-card">
+        <h3>Project 1: Static Resume Hosted on AWS S3</h3>
+        <p class="desc">
+          My first real AWS deployment. I built this page, configured an S3 bucket for static website hosting, wrote a bucket policy for public read access, and got a live URL on the internet. The goal wasn't just to follow a tutorial — it was to understand what each step actually does.
+        </p>
+        <div class="tags">
+          <span class="tag">Amazon S3</span>
+          <span class="tag">Static Website Hosting</span>
+          <span class="tag">IAM Bucket Policy</span>
+          <span class="tag">HTML/CSS</span>
+          <span class="tag">AWS Cost Explorer</span>
+        </div>
+        <div class="learnings">
+          <div class="learnings-title">What I actually learned</div>
+          <ul>
+            <li>The difference between "Block Public Access" settings and a bucket policy — and why both matter</li>
+            <li>How S3 serves static files without a web server running anywhere</li>
+            <li>How to write a bucket policy JSON that grants s3:GetObject to anyone</li>
+            <li>How to monitor costs with AWS Cost Explorer (this site costs ~$0.00/month)</li>
+            <li>That keeping the bucket live (vs deleting it) preserves the link for a portfolio</li>
+          </ul>
+        </div>
+        <a class="live-link" href="http://imani-cloud-resume-2026.s3-website.us-east-2.amazonaws.com/" target="_blank">
+          ↗ You're looking at it
+        </a>
+      </div>
+
+      <div class="project-card" style="opacity:0.55; border-style: dashed;">
+        <h3>Project 2: Coming Soon</h3>
+        <p class="desc">Next project will be added after the AWS exam. Thinking about adding a visitor counter (DynamoDB + Lambda) or exploring S3 + CloudFront for HTTPS delivery.</p>
+        <div class="tags">
+          <span class="tag">To be determined</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Built and deployed by Imani Price · Hosted on <strong>Amazon S3</strong> · <a href="https://github.com/Imanilprice/aws-cloud-practitioner_lab" target="_blank">View on GitHub</a></p>
+    <p style="margin-top:6px;">This is a living document — updated as I learn. Last updated June 2026.</p>
+  </footer>
+
 </body>
 </html>
