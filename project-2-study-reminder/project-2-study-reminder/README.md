@@ -1,7 +1,7 @@
 # 🅿️☁️ Project 2: Auto-Study Reminder
 ### AWS Lambda + Amazon SNS + Amazon EventBridge
 
-> A serverless reminder system that sends a personalized weekday morning study message with a rotating daily focus topic and exam countdown — built to support my AWS certification journey.
+> A serverless reminder system that sends a personalized weekday morning study message with a rotating daily focus topic and exam countdown, built to support my AWS certification journey.
 
 ---
 
