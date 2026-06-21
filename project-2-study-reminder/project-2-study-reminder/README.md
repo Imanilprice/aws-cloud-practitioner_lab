@@ -20,10 +20,7 @@ This project is live and actively sending reminders as I prepare for the **AWS C
 
 ## Architecture
 
-```
-
 ![Architecture Diagram](architecture.png)
-```
 
 ---
 
