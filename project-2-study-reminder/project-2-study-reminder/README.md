@@ -21,15 +21,8 @@ This project is live and actively sending reminders as I prepare for the **AWS C
 ## Architecture
 
 ```
-EventBridge (cron schedule — weekdays 5 AM ET)
-                    ↓
-          AWS Lambda Function
-          (StudyReminderFunction)
-                    ↓
-         Amazon SNS Topic
-         (aws-study-reminder)
-                    ↓
-           Email Delivery
+
+![Architecture Diagram](architecture.png)
 ```
 
 ---
