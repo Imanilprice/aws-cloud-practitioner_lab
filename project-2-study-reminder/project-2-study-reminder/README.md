@@ -67,7 +67,7 @@ Your future self is counting on you.
 
 — Your AWS Study Reminder (built by you, powered by Lambda)
 ```
-
+![Sample Message Screenshot](awsreminder.png)
 ---
 
 ## Project Files
